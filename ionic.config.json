@@ -1,0 +1,7 @@
+{
+  "name": "eje01firebase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
