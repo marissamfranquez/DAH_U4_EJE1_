@@ -16,21 +16,11 @@ export class NewStudentPage implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      name: [''],
-      controlnumber: [''],
-      curp: [''],
-      age: [0],
-      active: [false]
-    });
-    this.validate();
-  }
-  validate(): void {
-    this.myForm = this.fb.group({
       name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(150)])],
       controlnumber: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])],
       curp: ['', Validators.compose([Validators.required, Validators.pattern('[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}')])],
-      age: ['', Validators.compose([Validators.required])],
-      active: ['', Validators.compose([Validators.required])],
+      age: [0, Validators.compose([Validators.required])],
+      active: [false, Validators.compose([Validators.required])],
     });
   }
 
