@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
-import { Estudiante } from '../models/estudiante';
-import { EstudianteService } from '../services/estudiante.service';
+import { Estudiante } from '../../models/estudiante';
+import { EstudianteService } from '../../services/estudiante.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-new-student',
+  templateUrl: './new-student.page.html',
+  styleUrls: ['./new-student.page.scss'],
 })
-export class HomePage implements OnInit {
-
+export class NewStudentPage implements OnInit {
   public myForm: FormGroup;
   public student: Estudiante;
 
   constructor(private studentService: EstudianteService, private fb: FormBuilder) { }
+
   ngOnInit() {
     this.myForm = this.fb.group({
       name: [''],
@@ -33,6 +33,7 @@ export class HomePage implements OnInit {
       active: ['', Validators.compose([Validators.required])],
     });
   }
+
 
   create() {
     this.student = {
